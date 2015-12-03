@@ -1,0 +1,1425 @@
+<?xml version="1.0"?>
+<!DOCTYPE VOTABLE SYSTEM "http://us-vo.org/xml/VOTable.dtd">
+<VOTABLE  >
+   <DESCRIPTION>
+   Spitzer Heritage Archive - Simple Image Search
+   </DESCRIPTION>
+   <RESOURCE  type="results">
+      <INFO name="QUERY_STATUS"  value="OK"/>
+      <PARAM unit="degrees"  datatype="char"  name="INPUT:POS"  value="326.0702,-75.11129"  arraysize="*">
+         <DESCRIPTION>The position of the region of interest, expressed as the right-ascension and declination of the field center, in decimal degrees using the ICRS coordinate system. A comma should delimit the two values; embedded whitespace is not permitted
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM unit="degrees"  datatype="char"  name="INPUT:SIZE"  value="0.2"  arraysize="*">
+         <DESCRIPTION>The coordinate angular size of the region given in decimal degrees. The region may be specified using either one or two values. If only one value is given it applies to both coordinate axes.
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="char"  name="INPUT:FORMAT"  value="ALL"  arraysize="*">
+         <DESCRIPTION>the desired format or formats of the images referenced by the output table. The value is a comma-delimited list where each element can be any recognized MIME-type
+         </DESCRIPTION>
+         <VALUES  >
+            <OPTION value="METADATA"/>
+            <OPTION value="ALL"/>
+            <OPTION value="image/fits"/>
+         </VALUES>
+      </PARAM>
+      <PARAM datatype="char"  name="INPUT:VERB"  value="1"  arraysize="*">
+         <DESCRIPTION>Verbosity level, controlling the number of columns returned. Only two levels are supported: 1 (columns sufficient for uniquely describing the image) and 3 (return as much information about the images as possible)
+         </DESCRIPTION>
+         <VALUES  >
+            <OPTION value="1"/>
+            <OPTION value="3"/>
+         </VALUES>
+      </PARAM>
+      <PARAM datatype="char"  name="INPUT:DATASET"  value="ivo://irsa.ipac/spitzer.level1"  arraysize="*">
+         <DESCRIPTION>Desired dataset. Level1 - basic calibrated data. Level2 - combined data.
+         </DESCRIPTION>
+         <VALUES  >
+            <OPTION value="ivo://irsa.ipac/spitzer.level1"/>
+            <OPTION value="ivo://irsa.ipac/spitzer.level2"/>
+         </VALUES>
+      </PARAM>
+      <PARAM datatype="int"  name="naxes"  ucd="VOX:Image_Naxes"  value="2"  >
+         <DESCRIPTION>The number of image axes
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="char"  name="coordRefFrame"  ucd="VOX:STC_CoordRefFrame"  value="FK5"  arraysize="*">
+         <DESCRIPTION>The coordinate system reference frame, selected from 'ICRS', 'FK5', 'FK4', 'ECL', 'GAL', and 'SGAL'
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM unit="years"  datatype="double"  name="coordEquinox"  ucd="VOX:STC_CoordEquinox"  value="2000.0"  >
+         <DESCRIPTION>The Equinox (not required for ICRS) of the coordinate system used for the image world coordinate system (WCS)
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="char"  name="coordProjection"  ucd="VOX:WCS_CoordProjection"  value="TAN"  arraysize="3">
+         <DESCRIPTION>The three-character code specifying the celestial projection, as for FITS WCS
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="char"  name="bandPass_Unit"  ucd="VOX:BandPass_Unit"  value="meters"  arraysize="*">
+         <DESCRIPTION>The units used to represent spectral values, selected from 'meters', 'hertz', and 'keV'. No other units are permitted here; the client application may of course present a wider range of units in the user interface
+         </DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="char"  name="imagePixFlags"  ucd="VOX:Image_PixFlags"  value="C"  arraysize="*">
+         <DESCRIPTION>The type of processing done by the image service to produce an output image pixel. C means the image pixels were copied from a source image without change.
+         </DESCRIPTION>
+      </PARAM>
+      <TABLE >
+         <FIELD datatype="char"  name="externalname"  ucd="VOX:Image_Title"  arraysize="*"  > 
+            <DESCRIPTION>Short description of the image (image external name)
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD datatype="char"  name="wavelength"  ucd="INST_ID"  arraysize="*"  > 
+            <DESCRIPTION>The instrument and detector used to make the observation
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="degree"  datatype="double"  name="ra"  ucd="POS_EQ_RA_MAIN"  > 
+            <DESCRIPTION>The ICRS right-ascension of the center of the image
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="degree"  datatype="double"  name="dec"  ucd="POS_EQ_DEC_MAIN"  > 
+            <DESCRIPTION>The ICRS declination of the center of the image
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD datatype="int"  name="naxis"  ucd="VOX:Image_Naxis"  arraysize="*"  > 
+            <DESCRIPTION>The array value giving the length in pixels of each image axis
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="degrees/pixel"  datatype="double"  name="cdelt"  ucd="VOX:Image_Scale"  arraysize="*"  > 
+            <DESCRIPTION>The array value giving the scale in degrees per pixel of each image axis
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="degrees"  datatype="double"  name="crota2"  > 
+            <DESCRIPTION>Rotation angle. Indicates how much the y axis rotated relative to North.
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD datatype="char"  name="dataFormat"  ucd="VOX:Image_Format"  arraysize="*"  > 
+            <DESCRIPTION>MIME-type of the object associated with the image access reference
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD datatype="char"  name="imageAccessUrl"  ucd="VOX:Image_AccessReference"  arraysize="*"  > 
+            <DESCRIPTION>The URL to be used to access or retrieve the image
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD datatype="int"  name="filesize"  ucd="VOX:Image_FileSize"  > 
+            <DESCRIPTION>The actual or estimated size of the encoded image in bytes
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="days"  datatype="double"  name="mjDateObs"  ucd="VOX:Image_MJDateObs"  > 
+            <DESCRIPTION>Modified Julian date of the observation
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="pixel"  datatype="double"  name="crpix"  ucd="VOX:WCS_CoordRefPixel"  arraysize="*"  > 
+            <DESCRIPTION>The array value specifying the image pixel coordinates of the WCS reference pixel. This is identical to 'CRPIX' in FITS WCS
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="degrees"  datatype="double"  name="crval"  ucd="VOX:WCS_CoordRefValue"  arraysize="*"  > 
+            <DESCRIPTION>The array value specifying the world coordinates of the WCS reference pixel. This is identical to 'CRVAL' in FITS WCS
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="degrees/pixel"  datatype="double"  name="VOX:WCS_CDMatrix"  ucd="VOX:WCS_CDMatrix"  arraysize="*"  > 
+            <DESCRIPTION>The array (matrix) value specifying the WCS CD matrix. This is identical to the 'CD' term in FITS WCS, and defines the scale and rotation (among other things) of the image. Matrix elements should be ordered as CD[i,j] = [1,1], [1,2], [2,1], [2,2]
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD datatype="char"  name="bandPass_ID"  ucd="VOX:BandPass_ID"  arraysize="*"  > 
+            <DESCRIPTION>The bandpass by name (Spitzer bandpass)
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="meters"  datatype="double"  name="VOX:BandPass_RefValue"  ucd="VOX:BandPass_RefValue"  > 
+            <DESCRIPTION>The characteristic (reference) wavelength for the bandpass model.
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="meters"  datatype="double"  name="bandPass_LoLimit"  ucd="VOX:BandPass_LoLimit"  > 
+            <DESCRIPTION>The lower limit of the bandpass
+            </DESCRIPTION>
+         </FIELD>
+         <FIELD unit="meters"  datatype="double"  name="bandPass_HiLimit"  ucd="VOX:BandPass_HiLimit"  > 
+            <DESCRIPTION>The upper limit of the bandpass
+            </DESCRIPTION>
+         </FIELD>
+         <DATA>
+            <TABLEDATA>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0009_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6467</TD>
+               <TD>-75.1233</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2492</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007762</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6467 -75.1233</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0003_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0804</TD>
+               <TD>-75.1118</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3477</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439235</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0804 -75.1118</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0010_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6345</TD>
+               <TD>-75.1239</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2368</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007760</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6345 -75.1239</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0015_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.7180</TD>
+               <TD>-75.0512</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7009</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439238</TD>
+               <TD>290880</TD>
+               <TD>55142.1310</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.7180 -75.0512</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0012_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.7190</TD>
+               <TD>-75.0493</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.6993</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439239</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.7190 -75.0493</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0011_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6344</TD>
+               <TD>-75.1239</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2362</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007765</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6344 -75.1239</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0000_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0730</TD>
+               <TD>-75.1137</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3557</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439237</TD>
+               <TD>290880</TD>
+               <TD>55142.1270</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0730 -75.1137</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0013_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6261</TD>
+               <TD>-75.1256</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2274</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007770</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6261 -75.1256</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0015_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0839</TD>
+               <TD>-75.1139</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2047</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437860</TD>
+               <TD>290880</TD>
+               <TD>55142.1310</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0839 -75.1139</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0014_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0839</TD>
+               <TD>-75.1139</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2050</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437857</TD>
+               <TD>290880</TD>
+               <TD>55142.1310</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0839 -75.1139</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0014_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6417</TD>
+               <TD>-75.1241</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2426</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007772</TD>
+               <TD>290880</TD>
+               <TD>55098.2240</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6417 -75.1241</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0011_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6926</TD>
+               <TD>-75.0505</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7238</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439245</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6926 -75.0505</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0007_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0718</TD>
+               <TD>-75.1153</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6613</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007747</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0718 -75.1153</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0005_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5126</TD>
+               <TD>-75.0999</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2300</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000838</TD>
+               <TD>290880</TD>
+               <TD>55098.2210</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5126 -75.0999</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0008_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6468</TD>
+               <TD>-75.1233</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2487</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007750</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6468 -75.1233</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0007_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5090</TD>
+               <TD>-75.1020</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2264</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000835</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5090 -75.1020</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0009_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0845</TD>
+               <TD>-75.1108</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.8149</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000834</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0845 -75.1108</TD>
+               <TD>-3.4E-04 -2.9E-05 -2.9E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0012_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6260</TD>
+               <TD>-75.1256</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2275</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007754</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6260 -75.1256</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0006_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5089</TD>
+               <TD>-75.1020</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2262</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000843</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5089 -75.1020</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0005_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4331</TD>
+               <TD>-75.1716</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8658</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437825</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4331 -75.1716</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0012_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0848</TD>
+               <TD>-75.1120</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2032</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437852</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0848 -75.1120</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0011_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0584</TD>
+               <TD>-75.1132</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2277</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437853</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0584 -75.1132</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0013_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0849</TD>
+               <TD>-75.1120</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2039</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437854</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0849 -75.1120</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0015_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6411</TD>
+               <TD>-75.1240</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.2415</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007779</TD>
+               <TD>290880</TD>
+               <TD>55098.2240</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6411 -75.1240</TD>
+               <TD>-3.4E-04 -2.5E-05 -2.5E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0007_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4268</TD>
+               <TD>-75.1730</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8731</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437848</TD>
+               <TD>290880</TD>
+               <TD>55142.1290</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4268 -75.1730</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0008_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0755</TD>
+               <TD>-75.1113</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2121</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437849</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0755 -75.1113</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0009_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0754</TD>
+               <TD>-75.1113</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2120</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437850</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0754 -75.1113</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0010_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0585</TD>
+               <TD>-75.1132</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.2277</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437851</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0585 -75.1132</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0000_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5007</TD>
+               <TD>-75.1024</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2177</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000786</TD>
+               <TD>290880</TD>
+               <TD>55098.2200</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5007 -75.1024</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0002_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4491</TD>
+               <TD>-75.1738</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8486</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437813</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4491 -75.1738</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0001_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5007</TD>
+               <TD>-75.1024</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2178</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000789</TD>
+               <TD>290880</TD>
+               <TD>55098.2200</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5007 -75.1024</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0001_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4417</TD>
+               <TD>-75.1758</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8566</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437815</TD>
+               <TD>290880</TD>
+               <TD>55142.1270</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4417 -75.1758</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0002_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5091</TD>
+               <TD>-75.0992</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2257</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000792</TD>
+               <TD>290880</TD>
+               <TD>55098.2200</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5091 -75.0992</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0000_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0635</TD>
+               <TD>-75.1157</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6525</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007711</TD>
+               <TD>290880</TD>
+               <TD>55098.2200</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0635 -75.1157</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0003_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5091</TD>
+               <TD>-75.0992</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2258</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000794</TD>
+               <TD>290880</TD>
+               <TD>55098.2210</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5091 -75.0992</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0003_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4492</TD>
+               <TD>-75.1738</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8485</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437819</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4492 -75.1738</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0004_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4332</TD>
+               <TD>-75.1716</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8651</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437818</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4332 -75.1716</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0004_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.5126</TD>
+               <TD>-75.0999</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>5.2296</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000796</TD>
+               <TD>290880</TD>
+               <TD>55098.2210</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.5126 -75.0999</TD>
+               <TD>-3.4E-04 -3.1E-05 -3.1E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0006_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4267</TD>
+               <TD>-75.1731</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8726</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437822</TD>
+               <TD>290880</TD>
+               <TD>55142.1290</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4267 -75.1731</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch1/bcd/SPITZER_I1_30422784_0000_0000_5_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.4418</TD>
+               <TD>-75.1758</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-34.8565</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315437800</TD>
+               <TD>290880</TD>
+               <TD>55142.1270</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.4418 -75.1758</TD>
+               <TD>-2.8E-04 1.9E-04 1.9E-04 2.8E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0013_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0640</TD>
+               <TD>-75.1131</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.7932</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000818</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0640 -75.1131</TD>
+               <TD>-3.4E-04 -2.8E-05 -2.8E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0010_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0723</TD>
+               <TD>-75.1115</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.8025</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000816</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0723 -75.1115</TD>
+               <TD>-3.4E-04 -2.8E-05 -2.8E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0011_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0722</TD>
+               <TD>-75.1115</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.8019</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000817</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0722 -75.1115</TD>
+               <TD>-3.4E-04 -2.8E-05 -2.8E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0012_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0638</TD>
+               <TD>-75.1131</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.7933</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000820</TD>
+               <TD>290880</TD>
+               <TD>55098.2230</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0638 -75.1131</TD>
+               <TD>-3.4E-04 -2.8E-05 -2.8E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0003_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0720</TD>
+               <TD>-75.1125</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6608</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007730</TD>
+               <TD>290880</TD>
+               <TD>55098.2210</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0720 -75.1125</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0005_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0755</TD>
+               <TD>-75.1132</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6650</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007740</TD>
+               <TD>290880</TD>
+               <TD>55098.2210</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0755 -75.1132</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0008_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0845</TD>
+               <TD>-75.1108</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.8144</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000824</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0845 -75.1108</TD>
+               <TD>-3.4E-04 -2.9E-05 -2.9E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0006_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0717</TD>
+               <TD>-75.1153</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6611</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007743</TD>
+               <TD>290880</TD>
+               <TD>55098.2220</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0717 -75.1153</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0004_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0755</TD>
+               <TD>-75.1132</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6646</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007737</TD>
+               <TD>290880</TD>
+               <TD>55098.2210</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0755 -75.1132</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0014_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0795</TD>
+               <TD>-75.1116</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.8083</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000803</TD>
+               <TD>290880</TD>
+               <TD>55098.2240</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0795 -75.1116</TD>
+               <TD>-3.4E-04 -2.9E-05 -2.9E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch1/bcd/SPITZER_I1_30429952_0015_0000_3_bcd.fits</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>326.0788</TD>
+               <TD>-75.1115</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.8073</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356000802</TD>
+               <TD>290880</TD>
+               <TD>55098.2240</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0788 -75.1115</TD>
+               <TD>-3.4E-04 -2.8E-05 -2.8E-05 3.4E-04</TD>
+               <TD>IRAC 3.6um</TD>
+               <TD>3.56E-06</TD>
+               <TD>3.17E-06</TD>
+               <TD>3.95E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0007_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0581</TD>
+               <TD>-75.1109</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3721</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439231</TD>
+               <TD>290880</TD>
+               <TD>55142.1290</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0581 -75.1109</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0008_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.7097</TD>
+               <TD>-75.0487</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7081</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439224</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.7097 -75.0487</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0010_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.6927</TD>
+               <TD>-75.0505</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7238</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439225</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.6927 -75.0505</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0013_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.7191</TD>
+               <TD>-75.0493</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7001</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439226</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.7191 -75.0493</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0014_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.7181</TD>
+               <TD>-75.0512</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7011</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439227</TD>
+               <TD>290880</TD>
+               <TD>55142.1310</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.7181 -75.0512</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0002_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0721</TD>
+               <TD>-75.1125</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6607</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007724</TD>
+               <TD>290880</TD>
+               <TD>55098.2200</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0721 -75.1125</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0001_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0728</TD>
+               <TD>-75.1137</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3557</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439220</TD>
+               <TD>290880</TD>
+               <TD>55142.1270</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0728 -75.1137</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0004_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0645</TD>
+               <TD>-75.1095</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3641</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439221</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0645 -75.1095</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0006_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0580</TD>
+               <TD>-75.1109</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3716</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439222</TD>
+               <TD>290880</TD>
+               <TD>55142.1290</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0580 -75.1109</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0009_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>325.7096</TD>
+               <TD>-75.0486</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.7080</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439223</TD>
+               <TD>290880</TD>
+               <TD>55142.1300</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>325.7096 -75.0486</TD>
+               <TD>-2.7E-04 2.0E-04 2.0E-04 2.7E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0002_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0802</TD>
+               <TD>-75.1118</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3477</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439218</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0802 -75.1118</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30429952/ch2/bcd/SPITZER_I2_30429952_0001_0000_3_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0636</TD>
+               <TD>-75.1157</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>4.6527</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=356007723</TD>
+               <TD>290880</TD>
+               <TD>55098.2200</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0636 -75.1157</TD>
+               <TD>-3.4E-04 -2.7E-05 -2.7E-05 3.4E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            <TR>
+               <TD>r30422784/ch2/bcd/SPITZER_I2_30422784_0005_0000_5_bcd.fits</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>326.0644</TD>
+               <TD>-75.1095</TD>
+               <TD>256 256</TD>
+               <TD>-3.0E-04 3.0E-04</TD>
+               <TD>-35.3648</TD>
+               <TD>image/fits</TD>
+               <TD>http://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level1&amp;ID=315439219</TD>
+               <TD>290880</TD>
+               <TD>55142.1280</TD>
+               <TD>128.0000 128.0000</TD>
+               <TD>326.0644 -75.1095</TD>
+               <TD>-2.8E-04 2.0E-04 2.0E-04 2.8E-04</TD>
+               <TD>IRAC 4.5um</TD>
+               <TD>4.50E-06</TD>
+               <TD>3.99E-06</TD>
+               <TD>5.01E-06</TD>
+            </TR>
+            </TABLEDATA>
+         </DATA>
+      </TABLE>
+   </RESOURCE>
+</VOTABLE>
